@@ -139,6 +139,17 @@ export const getFileLink = async (path: string) => {
   return data.signedUrl;
 };
 
+export const useAssignFile = () => {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ id, projectId }: { id: string; projectId: string }) => {
+      const { error } = await supabase.from("files").update({ project_id: projectId }).eq("id", id);
+      if (error) throw error;
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["files"] }),
+  });
+};
+
 export const useDeleteFile = () => {
   const qc = useQueryClient();
   return useMutation({
