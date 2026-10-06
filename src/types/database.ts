@@ -16,7 +16,7 @@ export interface Project {
 
 export interface ProjectFile {
   id: string;
-  project_id: string;
+  project_id: string | null;
   name: string;
   file_url: string;
   file_type: string | null;
