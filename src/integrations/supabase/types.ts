@@ -67,7 +67,7 @@ export type Database = {
           id: string
           metadata: Json | null
           name: string
-          project_id: string
+          project_id: string | null
           source: Database["public"]["Enums"]["file_source"]
           source_reference: string | null
           uploaded_at: string
@@ -79,7 +79,7 @@ export type Database = {
           id?: string
           metadata?: Json | null
           name: string
-          project_id: string
+          project_id?: string | null
           source?: Database["public"]["Enums"]["file_source"]
           source_reference?: string | null
           uploaded_at?: string
@@ -91,7 +91,7 @@ export type Database = {
           id?: string
           metadata?: Json | null
           name?: string
-          project_id?: string
+          project_id?: string | null
           source?: Database["public"]["Enums"]["file_source"]
           source_reference?: string | null
           uploaded_at?: string
