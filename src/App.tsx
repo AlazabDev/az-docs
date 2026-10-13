@@ -12,6 +12,7 @@ import Activity from "./pages/Activity";
 import Clients from "./pages/Clients";
 import Settings from "./pages/Settings";
 import { Notifications, Help } from "./pages/Simple";
+import { RequireAuth } from "./components/auth/RequireAuth";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RequireAuth>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/projects" element={<Projects />} />
@@ -33,6 +35,7 @@ const App = () => (
           <Route path="/help" element={<Help />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </RequireAuth>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
