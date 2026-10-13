@@ -8,6 +8,13 @@
       "when": 1791287204310,
       "tag": "0000_files_inbox",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791926821041,
+      "tag": "0001_restrict_to_signed_in_staff",
+      "breakpoints": true
     }
   ]
 }
