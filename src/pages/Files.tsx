@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { FileCard } from "@/components/dashboard/FileCard";
 import { UploadFileDialog } from "@/components/files/UploadFileDialog";
+import { AnalyzeFileButton } from "@/components/files/AnalyzeFileButton";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -60,6 +61,7 @@ const Files = () => {
           {filtered.map((f) => (
             <div key={f.id} className="space-y-2">
               <FileCard file={f} onView={() => open(f.file_url)} onDownload={() => open(f.file_url)} />
+              {(f.source === "whatsapp" || !f.project_id) && <AnalyzeFileButton file={f} projects={projects} />}
               {!f.project_id && (
                 <div className="flex items-center gap-2 pr-4 text-sm text-muted-foreground">
                   <span>ربط بمشروع:</span>
