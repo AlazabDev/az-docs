@@ -11,6 +11,7 @@ import Files from "./pages/Files";
 import Activity from "./pages/Activity";
 import Clients from "./pages/Clients";
 import Settings from "./pages/Settings";
+import StorageBrowser from "./pages/StorageBrowser";
 import { Notifications, Help } from "./pages/Simple";
 import { RequireAuth } from "./components/auth/RequireAuth";
 
@@ -23,18 +24,19 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <RequireAuth>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<ProjectDetails />} />
-          <Route path="/files" element={<Files />} />
-          <Route path="/activity" element={<Activity />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/help" element={<Help />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<ProjectDetails />} />
+            <Route path="/files" element={<Files />} />
+            <Route path="/storage" element={<StorageBrowser />} />
+            <Route path="/activity" element={<Activity />} />
+            <Route path="/clients" element={<Clients />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </RequireAuth>
       </BrowserRouter>
     </TooltipProvider>
