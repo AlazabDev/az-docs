@@ -3,6 +3,7 @@ import {
   LayoutDashboard,
   FolderOpen,
   FileText,
+  HardDrive,
   Settings,
   MessageSquare,
   Calculator,
@@ -28,6 +29,7 @@ const mainNavItems = [
   { to: "/", label: "لوحة التحكم", icon: LayoutDashboard, end: true },
   { to: "/projects", label: "المشاريع", icon: FolderOpen },
   { to: "/files", label: "الملفات", icon: FileText },
+  { to: "/storage", label: "مخزن العزب (MinIO)", icon: HardDrive },
   { to: "/activity", label: "سجل النشاط", icon: Activity },
   { to: "/clients", label: "العملاء", icon: Users },
 ];
