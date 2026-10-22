@@ -133,7 +133,22 @@ export const useUploadFile = () => {
   });
 };
 
-export const getFileLink = async (path: string) => {
+export const getFileLink = async (path: string, bucket = "alazab-files") => {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  try {
+    const { data, error } = await supabase.functions.invoke("minio-storage", {
+      body: { action: "presigned-get", bucket, key: path },
+    });
+    if (!error && data?.url) {
+      return data.url;
+    }
+  } catch (err) {
+    console.warn("MinIO fetch failed, falling back to local storage:", err);
+  }
+
   const { data, error } = await supabase.storage.from("project-files").createSignedUrl(path, 60 * 10);
   if (error) throw error;
   return data.signedUrl;
